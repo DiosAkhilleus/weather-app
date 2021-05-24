@@ -1,5 +1,16 @@
 import {  toFahrenheit } from './math'
 
+async function sub () {
+    let val = document.getElementById('search').value;
+    if (val !== "") {
+        getWeather (val);
+    } else {
+        console.log("error");
+    }
+   
+}
+
+
 async function getWeather (city, state, country) {
     const weather = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${state},${country}&units=imperial&APPID=0728c611df00b978be5fae0e86bdf9a8`, {mode:'cors'});
     const weatherData = await weather.json();
@@ -17,4 +28,5 @@ const dataSet = (info) => {
     console.log(currentTemp, maxTemp, minTemp, feelsLike, humidity);
 }
 
-getWeather('Austin', 'TX');
+document.getElementById('subButton').addEventListener('click', sub);
+
