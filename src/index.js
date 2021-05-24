@@ -25,7 +25,15 @@ const dataSet = (info) => {
     let minTemp = `Today's Min: ${Math.round(info.main.temp_min)}\xB0F`;
     let feelsLike = `Feels Like: ${Math.round(info.main.feels_like)}\xB0F`;
     let humidity = `Humidity: ${info.main.humidity}%`;
-    console.log(currentTemp, maxTemp, minTemp, feelsLike, humidity);
+    //let retArr = [currentTemp, maxTemp, minTemp, feelsLike, humidity];
+    document.getElementById('current').textContent = currentTemp;
+    document.getElementById('max').textContent = maxTemp;
+    document.getElementById('min').textContent = minTemp;
+    document.getElementById('feels').textContent = feelsLike;
+    document.getElementById('humid').textContent = humidity;
+
+
+    //console.log(currentTemp, maxTemp, minTemp, feelsLike, humidity);
 }
 
 document.getElementById('subButton').addEventListener('click', sub);
